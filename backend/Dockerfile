@@ -1,5 +1,6 @@
 FROM python:3.11-slim
 
+# Sistem bağımlılıkları
 RUN apt-get update && apt-get install -y \
     tesseract-ocr \
     tesseract-ocr-tur \
@@ -10,12 +11,15 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-# Ana dizinden backend klasörüne bakıyoruz.
-COPY backend/requirements.txt .
+# Dosyalar artık Dockerfile ile aynı dizinde
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Tüm backend içeriğini kopyala.
-COPY backend/ .
+# Her şeyi kopyala
+COPY . .
 
-# Değişken işini Render paneline bırakıyoruz, komutu sadeleştiriyoruz
+# Portu Render standartlarına göre aç
+ENV PORT=10000
+EXPOSE 10000
+
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10000"]
