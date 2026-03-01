@@ -24,4 +24,4 @@ EXPOSE 10000
 
 
 # Dosyaların backend/ klasörü içinde olduğunu varsayarsak en garanti yol:
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10000", "--log-level", "debug"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10000"]
