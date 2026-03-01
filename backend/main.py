@@ -2,13 +2,14 @@ from fastapi import FastAPI, UploadFile, File, Response
 from fastapi.middleware.cors import CORSMiddleware
 from services.bg_remover import process_bg_removal
 from services.ocr_reader import router as ocr_router
-from rembg import new_session
+from rembg import remove, new_session
 #import uvicorn
 
 
 app = FastAPI()
 app.include_router(ocr_router)
 
+bg_session = None
 @app.get("/")
 async def root():
     return {"status": "ok", "message": "Multi-Tool API is Online!"}
@@ -24,12 +25,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-bg_session = new_session("u2net")
+
 @app.post("/api/remove-bg")
 async def remove_background_endpoint(file: UploadFile = File(...)):
+    global bg_session
+    # Eğer session yoksa (ilk istekte), burada oluştur
+    if bg_session is None:
+        bg_session = new_session("u2net")
+
     file_bytes = await file.read()
-    processed_image = process_bg_removal(file_bytes, session=bg_session)
-    return Response(content=processed_image, media_type="image/png")
+    # Modeli zaten Dockerfile ile indirdiğimiz için burası hızlı çalışacak
+    output = remove(file_bytes, session=bg_session)
+    return Response(content=output, media_type="image/png")
 
 
 """if __name__ == "__main__":
