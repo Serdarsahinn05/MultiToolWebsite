@@ -1,16 +1,15 @@
-# Test your Multi-Tool FastAPI endpoints
+# @name Variables
+@local = http://127.0.0.1:8000
+@remote = https://multitoolwebsite-kwr2.onrender.com
+@host = {{remote}}
 
 ### Root Endpoint Testi
 # API'nin ayakta olup olmadığını kontrol eder
-GET http://127.0.0.1:8000/
+GET {{host}}/
 Accept: application/json
 
-###
-
 ### AI Background Remover Testi
-# Bu test için 'test_image.png' adında bir görselin backend klasöründe olması gerekir.
-# FastAPI'ye bir dosya (multipart/form-data) gönderimini simüle eder.
-POST http://127.0.0.1:8000/api/remove-bg
+POST {{host}}/api/remove-bg
 Content-Type: multipart/form-data; boundary=boundary
 
 --boundary
@@ -20,11 +19,8 @@ Content-Type: image/png
 < ./test_image.png
 --boundary--
 
-###
-
-### (Gelecek Özellik) OCR Reader Testi
-# İleride ekleyeceğin özellikler için şablon
-POST http://127.0.0.1:8000/api/ocr
+### OCR Reader Testi
+POST {{host}}/api/ocr
 Content-Type: multipart/form-data; boundary=boundary
 
 --boundary

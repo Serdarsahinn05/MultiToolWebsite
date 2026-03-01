@@ -23,9 +23,11 @@ export default function BGRemoverPage() {
     formData.append('file', selectedFile);
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/remove-bg', formData, {
-        responseType: 'blob',
-      });
+      // Eğer .env'de URL yoksa, otomatik olarak localhost'a git
+const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000';
+      const response = await axios.post(`${baseUrl}/api/remove-bg`, formData, {
+      responseType: 'blob',
+        });
       const imageUrl = URL.createObjectURL(response.data);
       setResultImage(imageUrl);
     } catch (error) {
