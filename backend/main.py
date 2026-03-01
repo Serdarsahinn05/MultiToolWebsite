@@ -31,5 +31,6 @@ async def remove_background_endpoint(file: UploadFile = File(...)):
     return Response(content=processed_image, media_type="image/png")
 
 
-if __name__ == "__main__":
+"""if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)
+"""
