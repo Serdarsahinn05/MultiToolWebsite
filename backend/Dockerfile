@@ -22,4 +22,5 @@ COPY . .
 ENV PORT=10000
 EXPOSE 10000
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10000", "--log-level", "debug"]
+# Değişken işini Render paneline bırak, komutu sadeleştir
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10000"]
