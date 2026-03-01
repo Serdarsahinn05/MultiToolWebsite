@@ -18,4 +18,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY backend/ .
 
 # FastAPI'yi ayağa kaldır.
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10000"]
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-10000}"]
