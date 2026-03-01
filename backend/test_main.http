@@ -1,0 +1,35 @@
+# Test your Multi-Tool FastAPI endpoints
+
+### Root Endpoint Testi
+# API'nin ayakta olup olmadığını kontrol eder
+GET http://127.0.0.1:8000/
+Accept: application/json
+
+###
+
+### AI Background Remover Testi
+# Bu test için 'test_image.png' adında bir görselin backend klasöründe olması gerekir.
+# FastAPI'ye bir dosya (multipart/form-data) gönderimini simüle eder.
+POST http://127.0.0.1:8000/api/remove-bg
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="file"; filename="test_image.png"
+Content-Type: image/png
+
+< ./test_image.png
+--boundary--
+
+###
+
+### (Gelecek Özellik) OCR Reader Testi
+# İleride ekleyeceğin özellikler için şablon
+POST http://127.0.0.1:8000/api/ocr
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="file"; filename="document.png"
+Content-Type: image/png
+
+< ./document.png
+--boundary--
