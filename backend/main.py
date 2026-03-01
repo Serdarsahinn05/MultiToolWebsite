@@ -1,12 +1,12 @@
 from fastapi import FastAPI, UploadFile, File, Response
 from fastapi.middleware.cors import CORSMiddleware
 from services.bg_remover import process_bg_removal
-#from services.ocr_reader import router as ocr_router
+from services.ocr_reader import router as ocr_router
 import uvicorn
 
 
 app = FastAPI()
-#app.include_router(ocr_router)
+app.include_router(ocr_router)
 
 @app.get("/")
 async def root():
