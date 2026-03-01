@@ -1,19 +1,18 @@
 from fastapi import FastAPI, UploadFile, File, Response
-"""
 from fastapi.middleware.cors import CORSMiddleware
-from services.bg_remover import process_bg_removal
+#from services.bg_remover import process_bg_removal
 from services.ocr_reader import router as ocr_router
-import uvicorn
-"""
+#import uvicorn
+
 
 app = FastAPI()
-#app.include_router(ocr_router)
+app.include_router(ocr_router)
 
 @app.get("/")
 async def root():
     return {"status": "ok", "message": "Multi-Tool API is Online!"}
 
-"""
+
 # Çok Önemli: React (5173 portu) ve FastAPI (8000 portu) farklı yerlerde olduğu için
 # tarayıcı güvenliği (CORS) buna izin vermiyor. Bu middleware ile o engeli kaldırıyoruz.
 app.add_middleware(
@@ -24,7 +23,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
+"""
 @app.post("/api/remove-bg")
 async def remove_background_endpoint(file: UploadFile = File(...)):
     # Frontend'den gelen 'file' paketini oku
