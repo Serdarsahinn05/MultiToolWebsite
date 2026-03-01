@@ -7,7 +7,7 @@ interface StatItem {
 
 const STATS: StatItem[] = [
     { num: '35+', label: 'Tools' },
-    { num: '7', label: 'Categories' },
+    { num: '9', label: 'Categories' },
     { num: '100%', label: 'Free' },
     { num: '0', label: 'Sign-ups' },
 ]
