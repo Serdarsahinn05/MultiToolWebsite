@@ -23,5 +23,8 @@ ENV PORT=10000
 EXPOSE 10000
 
 
-# Dosyaların backend/ klasörü içinde olduğunu varsayarsak en garanti yol:
+# Pip install'lardan sonra, CMD'den önce ekle:
+RUN python -c "from rembg import new_session; new_session('u2net')"
+
+# Ardından başlatma komutu gelsin
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10000"]
