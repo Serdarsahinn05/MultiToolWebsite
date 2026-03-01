@@ -1,0 +1,50 @@
+.app {
+    min-height: 100vh;
+}
+
+.footer {
+    border-top: 1px solid var(--border);
+    padding: 48px 28px;
+    text-align: center;
+}
+
+.footerInner {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.footerLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-bottom: 14px;
+}
+
+.footerIcon {
+    font-size: 22px;
+    color: var(--teal);
+}
+
+.footerName {
+    font-family: var(--font-head);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.footerAccent {
+    color: var(--teal);
+}
+
+.footerCopy {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+}
+
+.footerTag {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    opacity: 0.55;
+}

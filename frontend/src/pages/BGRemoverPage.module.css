@@ -1,0 +1,171 @@
+.container {
+    min-height: 100vh;
+    padding: 60px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.backBtn {
+    background: none;
+    border: none;
+    color: var(--teal);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color var(--transition);
+}
+
+.backBtn:hover {
+    color: #00efd4;
+}
+
+.title {
+    font-family: var(--font-head);
+    font-size: 3rem;
+    color: var(--white);
+    margin-bottom: 2rem;
+    letter-spacing: -1px;
+}
+
+.card {
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.fileInput {
+    display: block;
+    width: 100%;
+    color: var(--text-sec);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-main);
+}
+
+/* Dosya seçme butonunu özelleştirme */
+.fileInput::file-selector-button {
+    background: var(--teal-glow);
+    color: var(--teal);
+    border: 1px solid var(--teal-border);
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: all var(--transition);
+}
+
+.fileInput::file-selector-button:hover {
+    background: var(--teal);
+    color: #04100e;
+}
+
+.btn {
+    background: var(--teal);
+    color: #04100e;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+    box-shadow: 0 0 20px rgba(0, 217, 192, 0.18);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.btn:not(:disabled):hover {
+    background: #00efd4;
+    transform: translateY(-2px);
+    box-shadow: 0 0 32px rgba(0, 217, 192, 0.32);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.resultBox {
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.resultBox.success {
+    border-color: var(--teal-border);
+    box-shadow: 0 0 30px rgba(0, 217, 192, 0.05);
+}
+
+.label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.success .label {
+    color: var(--teal);
+}
+
+.imgWrap {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    /* Arka planı silinen yeri belli eden photoshop tarzı dama tahtası */
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4T2NkYNgBxV1MzH8YmBiIB1gNgzB2QzE2cMIoGHQDMQYYo2DQDTBoDCwNAwAzQ1x8xYj+VwAAAABJRU5ErkJggg==');
+}
+
+.imgWrap img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+.download {
+    display: block;
+    text-align: center;
+    background: var(--teal-glow);
+    color: var(--teal);
+    border: 1px solid var(--teal-border);
+    padding: 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 16px;
+    transition: all var(--transition);
+}
+
+.download:hover {
+    background: var(--teal);
+    color: #04100e;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

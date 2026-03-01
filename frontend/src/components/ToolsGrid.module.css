@@ -1,0 +1,133 @@
+.section {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 80px 28px 110px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 52px;
+}
+
+.title {
+    font-family: var(--font-head);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.searchNotice {
+    background: var(--teal-glow);
+    border: 1px solid var(--teal-border);
+    border-radius: 10px;
+    padding: 11px 18px;
+    margin-bottom: 28px;
+    font-size: 0.87rem;
+    color: var(--text-sec);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+    gap: 22px;
+}
+
+/* Load more */
+.loadMoreWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 64px;
+}
+
+.loadMoreBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: 1px solid var(--border-med);
+    color: var(--text-sec);
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 14px 38px;
+    border-radius: 999px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.loadMoreBtn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--teal-glow);
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.loadMoreBtn:hover {
+    color: var(--teal);
+    border-color: var(--teal-border);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 217, 192, 0.1);
+}
+
+.loadMoreBtn:hover::before {
+    opacity: 1;
+}
+
+.loadMoreBtn:active {
+    transform: translateY(0);
+}
+
+.arrow {
+    display: inline-block;
+    font-size: 1.1rem;
+    transition: transform 0.35s ease;
+    position: relative;
+}
+
+.loadMoreBtn:hover .arrow {
+    transform: translateY(4px);
+}
+
+.moreHint {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.noResults {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1rem;
+    padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 50px 16px 80px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

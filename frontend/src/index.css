@@ -1,68 +1,78 @@
+/* ============================================================
+   ToolKit Pro — index.css  (Global Design System)
+   Dark theme · Turquoise accents · Premium design
+   ============================================================ */
+
+/* ---- RESET & BASE ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --teal: #00D9C0;
+  --teal-dim: #00b5a3;
+  --teal-glow: rgba(0, 217, 192, 0.14);
+  --teal-border: rgba(0, 217, 192, 0.3);
+  --bg: #080810;
+  --bg-card: #0f0f1a;
+  --bg-card2: #14141e;
+  --bg-glass: rgba(12, 12, 20, 0.88);
+  --surface: #1a1a28;
+  --surface2: #20202e;
+  --border: rgba(255, 255, 255, 0.06);
+  --border-med: rgba(255, 255, 255, 0.10);
+  --text-primary: #eeeef8;
+  --text-sec: #8888a8;
+  --text-muted: #50506a;
+  --white: #ffffff;
+  --font-main: 'Inter', system-ui, sans-serif;
+  --font-head: 'Space Grotesk', system-ui, sans-serif;
+  --radius-card: 18px;
+  --radius-btn: 10px;
+  --shadow-card: 0 4px 32px rgba(0, 0, 0, 0.55);
+  --shadow-glow: 0 0 40px rgba(0, 217, 192, 0.10);
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  font-family: var(--font-main);
+  background: var(--bg);
+  color: var(--text-primary);
   min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* ---- SCROLLBAR ---- */
+::-webkit-scrollbar {
+  width: 5px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+::-webkit-scrollbar-track {
+  background: var(--bg);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+::-webkit-scrollbar-thumb {
+  background: var(--surface2);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--teal-dim);
+}
+
+/* ---- UTILITY ---- */
+.gradient-text {
+  background: linear-gradient(135deg, var(--teal) 0%, #00f5e0 50%, #7cfff5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

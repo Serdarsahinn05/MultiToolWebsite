@@ -1,0 +1,176 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--bg-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow var(--transition);
+}
+
+.scrolled {
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
+}
+
+.inner {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 28px;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.logoIcon {
+    font-size: 22px;
+    color: var(--teal);
+    line-height: 1;
+}
+
+.logoText {
+    font-family: var(--font-head);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.3px;
+}
+
+.logoAccent {
+    color: var(--teal);
+}
+
+/* Nav */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+}
+
+.navBtn {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-sec);
+    background: none;
+    border: none;
+    padding: 7px 13px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: color var(--transition), background var(--transition);
+    font-family: var(--font-main);
+    white-space: nowrap;
+}
+
+.navBtn:hover {
+    color: var(--text-primary);
+    background: var(--surface);
+}
+
+.navActive {
+    color: var(--teal) !important;
+    background: var(--teal-glow) !important;
+}
+
+/* Search */
+.searchWrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.searchToggle {
+    background: var(--surface);
+    border: 1px solid var(--border-med);
+    color: var(--text-sec);
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.searchToggle:hover,
+.searchToggleActive {
+    color: var(--teal);
+    border-color: var(--teal-border);
+    background: var(--teal-glow);
+}
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface);
+    border: 1px solid var(--border-med);
+    border-radius: 10px;
+    padding: 0 12px;
+    overflow: hidden;
+    max-width: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s, border-color var(--transition);
+}
+
+.searchBarOpen {
+    max-width: 280px;
+    opacity: 1;
+    pointer-events: all;
+    border-color: var(--teal-border);
+}
+
+.searchBar input {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    width: 200px;
+    height: 40px;
+}
+
+.searchBar input::placeholder {
+    color: var(--text-muted);
+}
+
+.clearBtn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 0.75rem;
+    padding: 2px 4px;
+    transition: color var(--transition);
+}
+
+.clearBtn:hover {
+    color: var(--teal);
+}
+
+@media (max-width: 900px) {
+    .nav {
+        display: none;
+    }
+
+    .inner {
+        gap: 16px;
+        justify-content: space-between;
+    }
+}

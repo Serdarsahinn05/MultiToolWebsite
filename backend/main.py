@@ -1,9 +1,12 @@
 from fastapi import FastAPI, UploadFile, File, Response
 from fastapi.middleware.cors import CORSMiddleware
 from services.bg_remover import process_bg_removal
+from services.ocr_reader import router as ocr_router
 import uvicorn
 
+
 app = FastAPI()
+app.include_router(ocr_router)
 
 # Çok Önemli: React (5173 portu) ve FastAPI (8000 portu) farklı yerlerde olduğu için
 # tarayıcı güvenliği (CORS) buna izin vermiyor. Bu middleware ile o engeli kaldırıyoruz.
