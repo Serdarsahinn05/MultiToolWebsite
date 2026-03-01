@@ -1,6 +1,6 @@
 from fastapi import FastAPI, UploadFile, File, Response
 from fastapi.middleware.cors import CORSMiddleware
-#from services.bg_remover import process_bg_removal
+from services.bg_remover import process_bg_removal
 from services.ocr_reader import router as ocr_router
 #import uvicorn
 
@@ -23,7 +23,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-"""
+
 @app.post("/api/remove-bg")
 async def remove_background_endpoint(file: UploadFile = File(...)):
     # Frontend'den gelen 'file' paketini oku
@@ -34,7 +34,7 @@ async def remove_background_endpoint(file: UploadFile = File(...)):
 
     #Response: İşlenmiş resmi PNG formatında ham veri olarak geri fırlat
     return Response(content=processed_image, media_type="image/png")
-"""
+
 
 """if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)
