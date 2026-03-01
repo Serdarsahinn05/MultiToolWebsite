@@ -1,6 +1,6 @@
 FROM python:3.11-slim
 
-# Linux bağımlılıklarını ve Tesseract dil paketlerini kuruyoruz
+# Tesseract ve sistem bağımlılıkları
 RUN apt-get update && apt-get install -y \
     tesseract-ocr \
     tesseract-ocr-tur \
@@ -9,10 +9,12 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-COPY requirements.txt .
+
+# Dosyalar artık backend klasörünün içinde olduğu için yolu belirtiyoruz
+COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+# Backend içeriğini kopyala
+COPY backend/ .
 
-# FastAPI'yi dış dünyaya aç
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10000"]
