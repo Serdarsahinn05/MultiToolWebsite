@@ -2,6 +2,7 @@ from fastapi import FastAPI, UploadFile, File, Response
 from fastapi.middleware.cors import CORSMiddleware
 from services.bg_remover import process_bg_removal
 from services.ocr_reader import router as ocr_router
+from rembg import new_session
 #import uvicorn
 
 
@@ -23,16 +24,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
+bg_session = new_session("u2net")
 @app.post("/api/remove-bg")
 async def remove_background_endpoint(file: UploadFile = File(...)):
-    # Frontend'den gelen 'file' paketini oku
     file_bytes = await file.read()
-
-    # servisi çalıştır
-    processed_image = process_bg_removal(file_bytes)
-
-    #Response: İşlenmiş resmi PNG formatında ham veri olarak geri fırlat
+    processed_image = process_bg_removal(file_bytes, session=bg_session)
     return Response(content=processed_image, media_type="image/png")
 
 
