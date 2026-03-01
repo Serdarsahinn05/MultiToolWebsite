@@ -68,6 +68,7 @@ multi-tool-pro/
 │   │   ├── index.css               # Temel CSS Sıfırlama
 │   │   ├── main.tsx                # React Giriş Noktası
 │   │   └── vite-env.d.ts           # Vite Tip Tanımlamaları
+│   ├── .env.example                # Kodun Bağlantı Sitesi
 │   ├── index.html                  # Ana HTML Şablonu
 │   ├── package.json                # NPM Bağımlılıkları
 │   ├── tsconfig.json               # TypeScript Ayarları
@@ -110,6 +111,11 @@ npm run dev
 ```
 
 🌐 Uygulama Arayüzü: http://localhost:5173
+
+**Önemli**: Projeyi canlıya (Production) alacaksanız, ana dizindeki `.env.example` dosyasının adını `.env` olarak değiştirin ve içindeki `VITE_API_BASE_URL` değişkenine kendi backend linkinizi yazın.
+
+**Yerel Çalıştırma**: Eğer projeyi sadece kendi bilgisayarınızda (localhost) denemek isterseniz, herhangi bir ayar yapmanıza gerek yoktur; sistem otomatik olarak yerel sunucuya bağlanacaktır.
+- Sistem, `.env` dosyası bulunamadığında varsayılan olarak `localhost:8000` adresini kullanacak şekilde ayarlanmıştır
 
 ## 📸 Ekran Görüntüleri
 Geliştirme aşamasındaki arayüzden bir kesit
