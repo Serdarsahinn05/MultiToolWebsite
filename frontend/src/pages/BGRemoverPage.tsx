@@ -54,13 +54,13 @@ const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000';
           className={styles.fileInput}
         />
 
-        <button
+        <text
           onClick={handleUpload}
-          disabled={!selectedFile || loading}
+          //disabled={!selectedFile || loading}
           className={styles.btn}
         >
-          {loading ? "Görsel İşleniyor Lütfen Bekleyin..." : "Arka Planı Temizle"}
-        </button>
+          {loading ? "Görsel İşleniyor Lütfen Bekleyin..." : "Bu özellik şu an çalışmamaktadır"}
+        </text>
       </div>
 
       {(selectedFile || resultImage) && (
